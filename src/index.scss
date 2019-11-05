@@ -13,9 +13,40 @@
 $regularFont: poppinsRegular, Sans-Serif;
 $boldFont: poppinsBold, Sans-Serif;
 
+$strongShadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+  0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11),
+  0 32px 32px rgba(0, 0, 0, 0.11);
+
+$darkBlueGray: #1a202c;
+$deepOrange: #f57c00;
+$brightYellow: #ffeb3b;
+
+$break-medium: 900px;
+
+//Initial setup
+//_____________________________
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: $darkBlueGray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#root {
+  height: 100%;
 }
 
 h1,
@@ -24,9 +55,165 @@ h3 {
   font-family: $boldFont;
   font-weight: 400;
   line-height: 1.61803398875;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
 }
 
 p {
   font-family: $regularFont;
   line-height: 1.61803398875;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: $break-medium) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+//Helpers
+//_____________________________
+
+.accent {
+  color: $deepOrange;
+}
+
+.center {
+  text-align: center;
+}
+
+//City Cards
+//_____________________________
+
+.city-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.city-card {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background: url('https://www.harpersbazaararabia.com/sites/default/files/styles/ful_scr_img/public/images/2019/06/24/shutterstock-tblisli-georgia.jpg?itok=yQHzTs-g');
+  transition: all 300ms ease;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.6;
+    transition: opacity 300ms ease;
+  }
+
+  &.success {
+    &:after {
+      background-color: #43a047;
+    }
+  }
+
+  &.failure {
+    &:after {
+      background-color: #e53935;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      &:after {
+        opacity: 0.3;
+      }
+      box-shadow: $strongShadow;
+      @media only screen and (min-width: $break-medium) {
+        transform: translateY(-4px);
+      }
+    }
+  }
+
+  & * {
+    z-index: 1;
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+}
+
+.temperature {
+  color: $brightYellow;
+  font-family: $regularFont;
+  font-size: 1.2rem;
+  margin-top: 16px;
+}
+
+.middle {
+  margin: 8px 32px;
+}
+
+@media only screen and (max-width: $break-medium) {
+  .city-cards-container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .city-card {
+    height: 50%;
+    max-width: 100%;
+  }
+}
+
+//Menu
+//_____________________________
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 16px;
+  z-index: 9999;
+
+  .menu-content {
+    margin-left: auto;
+  }
 }
