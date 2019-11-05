@@ -1,0 +1,32 @@
+@import './normalize.css';
+
+@font-face {
+  font-family: poppinsRegular;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: poppinsBold;
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}
+
+$regularFont: poppinsRegular, Sans-Serif;
+$boldFont: poppinsBold, Sans-Serif;
+
+html,
+body {
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $boldFont;
+  font-weight: 400;
+  line-height: 1.61803398875;
+}
+
+p {
+  font-family: $regularFont;
+  line-height: 1.61803398875;
+}
