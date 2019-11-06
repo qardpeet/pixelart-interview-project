@@ -1,0 +1,12 @@
+- implement starting component
+
+- implement history component
+  - store history into localstorage and load it on mount
+
+- refactor and split up components into logical subcomponents
+
+- add polyfills
+
+- test crossbrowser compatibility
+
+- try to think of a way to optimize random city picking (currently loading 2mb json of city ids)

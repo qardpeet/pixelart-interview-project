@@ -14,8 +14,8 @@ $regularFont: poppinsRegular, Sans-Serif;
 $boldFont: poppinsBold, Sans-Serif;
 
 $strongShadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
-  0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11),
-  0 32px 32px rgba(0, 0, 0, 0.11);
+  0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+  0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
 
 $darkBlueGray: #1a202c;
 $deepOrange: #f57c00;
@@ -131,6 +131,7 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 16px;
 
   &:after {
     content: '';
@@ -172,8 +173,14 @@ h3 {
     z-index: 1;
   }
 
+  h3,
   h2 {
     text-transform: uppercase;
+    text-align: center;
+  }
+
+  h3 {
+    color: rgba(255, 255, 255, 0.7);
   }
 }
 
@@ -184,8 +191,13 @@ h3 {
   margin-top: 16px;
 }
 
-.middle {
-  margin: 8px 32px;
+.divider {
+  height: 64px;
+  min-width: 128px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: $break-medium) {
@@ -198,6 +210,16 @@ h3 {
   .city-card {
     height: 50%;
     max-width: 100%;
+  }
+
+  .divider {
+    position: absolute;
+    left: 50%;
+    margin-left: -64px;
+    top: 50%;
+    margin-top: -32px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -212,8 +234,19 @@ h3 {
   display: flex;
   padding: 16px;
   z-index: 9999;
+  align-items: center;
 
-  .menu-content {
+  .menu-content-right {
     margin-left: auto;
   }
+}
+
+.btn-small {
+  background: transparent;
+  font-family: $boldFont;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
 }
