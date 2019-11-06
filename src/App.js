@@ -104,7 +104,9 @@ export class App extends Component {
   lose = () => {
     const score = this.state.score;
 
-    const newQuestionsHistory = this.state.questions.slice(0, score + 1);
+    const newQuestionsHistory = this.state.questions
+      .slice(0, score + 1)
+      .reverse();
 
     this.setState(state => ({
       questionsHistory: [...newQuestionsHistory, ...state.questionsHistory],
