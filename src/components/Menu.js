@@ -2,7 +2,7 @@ import React from 'react';
 
 import Pulse from 'react-reveal/Pulse';
 
-const Menu = ({ score, changeUnit, unit }) => {
+const Menu = ({ score, changeUnit, unit, status }) => {
   return (
     <div className="menu">
       <div className="menu-content-left">
@@ -11,11 +11,13 @@ const Menu = ({ score, changeUnit, unit }) => {
         </button>
       </div>
       <div className="menu-content-right">
-        <Pulse spy={score} duration={500}>
-          <h3>
-            SCORE: <span className="accent">{score}</span>
-          </h3>
-        </Pulse>
+        {status === 'PLAYING' && (
+          <Pulse spy={score} duration={500}>
+            <h3>
+              SCORE: <span className="accent">{score}</span>
+            </h3>
+          </Pulse>
+        )}
       </div>
     </div>
   );

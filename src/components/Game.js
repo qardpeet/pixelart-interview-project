@@ -1,30 +1,38 @@
 import React from 'react';
 
-import CityCard from './CityCard';
-import Divider from './Divider';
+import Question from './Question';
+import Lose from './Lose';
+import History from './History';
+import SplashScreen from './SplashScreen';
 
-const Game = ({ cards, unit, status, onCardClick, score }) => {
-  if (status !== 'PLAYING') return null;
-
-  return (
-    <div className="city-cards-container">
-      <CityCard
-        onClick={onCardClick}
-        city={cards.cities[0]}
-        index={0}
-        status={cards.status}
-        unit={unit}
-      />
-      <Divider status={cards.status} />
-      <CityCard
-        onClick={onCardClick}
-        city={cards.cities[1]}
-        index={1}
-        status={cards.status}
-        unit={unit}
-      />
-    </div>
-  );
+const Game = ({
+  handleCardClick,
+  question,
+  questionsHistory,
+  unit,
+  status,
+  score,
+  play,
+  viewHistory,
+}) => {
+  switch (status) {
+    case 'PLAYING':
+      return (
+        <Question
+          handleCardClick={handleCardClick}
+          question={question}
+          unit={unit}
+        />
+      );
+    case 'LOST':
+      return <Lose score={score} play={play} viewHistory={viewHistory} />;
+    case 'HISTORY':
+      return (
+        <History questionsHistory={questionsHistory} play={play} unit={unit} />
+      );
+    default:
+      return <SplashScreen play={play} />;
+  }
 };
 
 export default Game;
