@@ -2,7 +2,7 @@ const getCityTemps = (ids, unit = 'metric') =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/group?id=${ids.join(
+        `https://api.openweathermap.org/data/2.5/group?id=${ids.join(
           ','
         )}&units=${unit}&appid=9578bce0efcfc3d25b7d3e3704490270`
       );
