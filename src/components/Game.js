@@ -11,7 +11,7 @@ const Game = ({
   questionsHistory,
   unit,
   status,
-  score,
+  prevScore,
   play,
   viewHistory,
 }) => {
@@ -25,7 +25,9 @@ const Game = ({
         />
       );
     case 'LOST':
-      return <Lose score={score} play={play} viewHistory={viewHistory} />;
+      return (
+        <Lose prevScore={prevScore} play={play} viewHistory={viewHistory} />
+      );
     case 'HISTORY':
       return (
         <History questionsHistory={questionsHistory} play={play} unit={unit} />

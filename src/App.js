@@ -13,6 +13,7 @@ export class App extends Component {
     status: '',
     unit: 'METRIC',
     score: 0,
+    prevScore: 0,
     questions: [],
     questionsHistory: [],
     loading: true,
@@ -120,13 +121,14 @@ export class App extends Component {
       questionsHistory: [...newQuestionsHistory, ...state.questionsHistory],
       questions: state.questions.slice(score + 1),
       status: 'LOST',
+      prevScore: state.score,
+      score: 0,
     }));
   };
 
   play = () => {
     this.setState({
       status: 'PLAYING',
-      score: 0,
     });
   };
 
@@ -145,7 +147,7 @@ export class App extends Component {
           changeUnit={this.changeUnit}
           unit={this.state.unit}
         />
-        {this.state.questions.length === this.state.score ? (
+        {this.state.questions.length <= this.state.score ? (
           <Loading />
         ) : (
           <Game
@@ -154,7 +156,7 @@ export class App extends Component {
             questionsHistory={this.state.questionsHistory}
             unit={this.state.unit}
             status={this.state.status}
-            score={this.state.score}
+            prevScore={this.state.prevScore}
             play={this.play}
             viewHistory={this.viewHistory}
           />

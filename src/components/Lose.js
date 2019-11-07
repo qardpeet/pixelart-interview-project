@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Lose = ({ score, play, viewHistory }) => (
+const Lose = ({ prevScore, play, viewHistory }) => (
   <div className="losing-screen">
     <h1>
       YOU LOST
@@ -9,7 +9,7 @@ const Lose = ({ score, play, viewHistory }) => (
       </span>
     </h1>
     <h2>
-      SCORE: <span className="accent">{score}</span>
+      SCORE: <span className="accent">{prevScore}</span>
     </h2>
     <button onClick={play} className="btn-regular">
       PLAY AGAIN
