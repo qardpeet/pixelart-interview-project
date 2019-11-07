@@ -111,6 +111,7 @@ export class App extends Component {
   lose = () => {
     const score = this.state.score;
 
+    //reverse to follow timeline
     const newQuestionsHistory = this.state.questions
       .slice(0, score + 1)
       .reverse();
