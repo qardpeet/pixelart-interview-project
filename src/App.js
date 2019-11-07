@@ -4,6 +4,7 @@ import chunk from 'lodash/chunk';
 
 import Game from './components/Game';
 import Menu from './components/Menu';
+import Loading from './components/Loading';
 
 import cityIds from './cityIds.json';
 
@@ -59,10 +60,12 @@ export class App extends Component {
 
         this.setState(state => ({
           questions: [...state.questions, ...newQuestions],
-          loading: false,
         }));
       })
-      .catch(e => console.log(e));
+      .catch(e => {
+        console.error(e);
+        setTimeout(this.fetchCities, 3000);
+      });
   };
 
   handleCardClick = index => {
@@ -133,8 +136,6 @@ export class App extends Component {
   };
 
   render() {
-    if (this.state.loading) return null;
-
     return (
       <>
         <Menu
@@ -143,16 +144,20 @@ export class App extends Component {
           changeUnit={this.changeUnit}
           unit={this.state.unit}
         />
-        <Game
-          handleCardClick={this.handleCardClick}
-          question={this.state.questions[this.state.score]}
-          questionsHistory={this.state.questionsHistory}
-          unit={this.state.unit}
-          status={this.state.status}
-          score={this.state.score}
-          play={this.play}
-          viewHistory={this.viewHistory}
-        />
+        {this.state.questions.length === this.state.score ? (
+          <Loading />
+        ) : (
+          <Game
+            handleCardClick={this.handleCardClick}
+            question={this.state.questions[this.state.score]}
+            questionsHistory={this.state.questionsHistory}
+            unit={this.state.unit}
+            status={this.state.status}
+            score={this.state.score}
+            play={this.play}
+            viewHistory={this.viewHistory}
+          />
+        )}
       </>
     );
   }

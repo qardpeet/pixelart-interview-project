@@ -1,16 +1,16 @@
 - implement starting component ✅
 
 - implement history component ✅
-  
-- store history into localstorage and load it on mount
 
 - refactor and split up components into logical subcomponents ✅
 
 - add polyfills ✅
 
-- test crossbrowser compatibility
+- test crossbrowser compatibility ✅
 
 - try to think of a way to optimize random city picking (currently loading 2mb json of city ids) ✅
   - make sure two cities don't get picked in the same step ✅
 
 - fetch city image and use it to style the citycard
+
+- handle user disconnecting from the internet ✅
