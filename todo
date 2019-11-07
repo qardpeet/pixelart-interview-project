@@ -10,7 +10,7 @@
 
 - test crossbrowser compatibility
 
-- try to think of a way to optimize random city picking (currently loading 2mb json of city ids)
-  - make sure two cities don't get picked in the same step
+- try to think of a way to optimize random city picking (currently loading 2mb json of city ids) ✅
+  - make sure two cities don't get picked in the same step ✅
 
 - fetch city image and use it to style the citycard

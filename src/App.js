@@ -26,7 +26,11 @@ export class App extends Component {
     const randCityIds = [];
 
     for (let i = 0; i < size; i++) {
-      const randIndex = Math.floor(Math.random() * length);
+      let randIndex;
+      while (true) {
+        randIndex = Math.floor(Math.random() * length);
+        if (!randCityIds.includes(cityIds[randIndex])) break;
+      }
       randCityIds.push(cityIds[randIndex]);
     }
 
