@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "004cb23ae4ce4f0065ce347e37baaf64",
+    "revision": "387f9c6b6192c5e8ba23f3f6a1260cea",
     "url": "/pixelart-interview-project/index.html"
   },
   {
-    "revision": "25e65a172e4a0247f408",
+    "revision": "066a1657c3eeb2cab0d4",
     "url": "/pixelart-interview-project/static/css/main.faf49f6d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pixelart-interview-project/static/js/2.6428e84a.chunk.js"
   },
   {
-    "revision": "25e65a172e4a0247f408",
-    "url": "/pixelart-interview-project/static/js/main.44032172.chunk.js"
+    "revision": "066a1657c3eeb2cab0d4",
+    "url": "/pixelart-interview-project/static/js/main.3d21a058.chunk.js"
   },
   {
     "revision": "a70f14418d58a6b4e969",
